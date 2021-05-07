@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> AIA | AIA - Insurance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mix-all.css">
+
+    <script src="js/app.js" ></script>
+    <script src="js/backend.js" ></script>
+    <script src="js/mix-all.js" ></script>
+    <title>AIA Insurance</title>
+    <!--Datepicker-->
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-nav flex-md-nowrap p-0 shadow">
+
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"><img src="./images/logo/logo.png" alt="logi"></a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown">
+          <a class="btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="./images/icon/avatar-01.jpg" alt="user-name" alt="profile"/> User Name
+          </a>
+      
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><em class="fas fa-user"></em>Profile</a>
+            <a href="#"  class="dropdown-item" id="logout">
+              <em class="fas fa-sign-out-alt"></em>Logout</a> <form id="admin-logout-form" class="d-none" action="{{ route('admin.logout') }}" method="POST">@csrf</form>
+                
+          </div>
+        </div>
+      
+      </nav>
+      
+      <!-- HEADER DESKTOP-->
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="{{ $segment == 'bar_chart_report' ?'active':''}} nav-link"
+                        href="#">
+                            <i class="fas fa-tachometer-alt" aria-hidden="true"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <i class="fas fa-cogs" aria-hidden="true"></i>Settings
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('admin.users.index') }}"
+                                    class="nav-link {{ $segment == 'users' ? 'active' : '' }}">
+                                        <i class="fa fa-users" aria-hidden="true"></i>Staffs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.roles.index') }}"
+                                    class="nav-link {{ $segment == 'roles' ? 'active' : '' }}">
+                                        <i class="fa fa-user-secret" aria-hidden="true"></i>Roles
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.permissions.index') }}"
+                                    class="nav-link {{ $segment == 'permissions' ? 'active' : '' }}">
+                                        <i class="fas fa-user-lock" aria-hidden="true"></i>Permissions
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'policy_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/policy_import') }}">
+                                <i class="fas fa-upload" aria-hidden="true"></i>Import Policies
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'client_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/client_import') }}">
+                                <i class="fas fa-upload" aria-hidden="true"></i>Import Client
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'beneficiary_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/beneficiary_import') }}">
+                                <i class="fas fa-upload" aria-hidden="true"></i>Import Beneficiary
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'claim_list'?'active':''}} nav-link"
+                            href="{{url('admin/claim_list') }}">
+                                <i class="far fa-list-alt" aria-hidden="true"></i>Claim List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'member_info' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/member_info') }}">
+                                <i class="fas fa-upload" aria-hidden="true"></i>Member Info
+                            </a>
+                        </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <div class="bs-example">
+                        <h1 class="h2 title-1"><img src="./images/icon/Member Info(red).png"> Member Information</h1>
+                       
+                        <div class="col-md-12">
+                            <form id="search_form" action="#" method="post">
+                            <!-- @csrf -->
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group row">
+                                            <label for="name" class="member-label col-form-label"> Change<br> Request From: </label>
+                                            <div class="member-input">
+                                                <input id="datepicker" />
+                                                <!-- @if($errors->has('from_date'))
+                                                    <em class="invalid_feedback">{{ $errors->first('from_date') }}</em>
+                                                @endif -->
+                                            </div>
+
+                                            <label for="name" class="member-label col-form-label"> Change <br>Request To: </label>
+                                            <div class="member-input" width="100">
+                                                <input id="datepicker2" />
+                                                <!-- @if($errors->has('to_date'))
+                                                    <em class="invalid_feedback">{{ $errors->first('to_date') }}</em>
+                                                @endif -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row export_change_report">
+                                <div class="col-sm-6">
+                                    <button id="export_change_report" class="btn btn-primary">Export Change Report</button>
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group row member">
+                                        <select name="select_member" id="select_member" class="form-control ">
+                                            <option value="0">Enter Member ID</option>
+                                            <option value="1">New</option>
+                                            <option value="2">Reject</option>
+                                            <option value="3">Approved</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button id="change_report_search" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                        <div class="table-responsive listing_datatable">
+                            <table id="change_report" class="table table-striped table-bordered dt-responsive nowrap table_id">
+                            <caption class="d-none"> Change Report </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope='col' class="text-left">No</th>
+                                        <th scope='col' class="text-left">Membmer ID</th>
+                                        <th scope='col' class="text-left">Policy Number</th>
+                                        <th scope='col' class="text-left">Change Type</th>
+                                        <th scope='col' class="text-left">Submition Date</th>
+                                        <th scope='col' class="text-left">Approved Date</th>
+                                        <th scope='col' class="text-left">Approved By</th>
+                                        <th scope='col' class="text-left">Status</th>
+                                        <th scope='col' class="text-left">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-left">
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<script src="js/main.js"></script>
+<script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+    <script>
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> AIA | AIA - Insurance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;
+   img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/mix-all.css">
+
+    <script src="js/app.js" ></script>
+    <script src="js/backend.js" ></script>
+    <script src="js/mix-all.js" ></script>
+    <title>AIA Insurance</title>
+    <!--Datepicker-->
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark sticky-top bg-nav flex-md-nowrap p-0 shadow">
+
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#"><img src="./images/logo/logo.png" alt="logi"></a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="dropdown">
+          <a class="btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="./images/icon/avatar-01.jpg" alt="user-name" alt="profile"/> User Name
+          </a>
+      
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#"><em class="fas fa-user"></em>Profile</a>
+            <a href="#"  class="dropdown-item" id="logout">
+              <em class="fas fa-sign-out-alt"></em>Logout</a> <form id="admin-logout-form" class="d-none" action="{{ route('admin.logout') }}" method="POST">@csrf</form>
+                
+          </div>
+        </div>
+      
+      </nav>
+      
+      <!-- HEADER DESKTOP-->
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="{{ $segment == 'bar_chart_report' ?'active':''}} nav-link"
+                        href="#">
+                            <img src="./images/icon/Dashboard.png" class="img-responsive" alt=""> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+                        <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Settings
+                        </a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                                <li>
+                                    <a href="{{ route('admin.users.index') }}"
+                                    class="nav-link {{ $segment == 'users' ? 'active' : '' }}">
+                                        <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Staffs
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.roles.index') }}"
+                                    class="nav-link {{ $segment == 'roles' ? 'active' : '' }}">
+                                        <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Roles
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('admin.permissions.index') }}"
+                                    class="nav-link {{ $segment == 'permissions' ? 'active' : '' }}">
+                                        <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Permissions
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'policy_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/policy_import') }}">
+                                <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Import Policies
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'client_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/client_import') }}">
+                                <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Import Client
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'beneficiary_import' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/beneficiary_import') }}">
+                                <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Import Beneficiary
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'claim_list'?'active':''}} nav-link"
+                            href="{{url('admin/claim_list') }}">
+                                <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Claim List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ $segment == 'member_info' ? 'active' : '' }} nav-link"
+                            href="{{ url('admin/member_info') }}">
+                                <img src="./images/icon/Dashboard.png" class="img-responsive" alt="">Member Info
+                            </a>
+                        </li>
+
+
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><h1 class="h2 title-1"> Policy List</h1></a></li>
+                    </nav>
+                    
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="list-group">
+                              <a href="#" class="list-group-item list-group-item-action active list-spanactive">
+                                <span class="badge badge-primary badge-pill "><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                Cras justo odio<br> 
+                                <span class="list-spanactive">0111 2111 2131 2091</span>
+                                
+                              </a>
+
+                              <a href="#" class="list-group-item list-group-item-action">
+                                <span class="badge badge-primary badge-pill"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                Dapibus ac facilisis in <br>
+                                <span class="list-span">0111 2111 2131 2091</span>
+                                </a>
+
+                              <a href="#" class="list-group-item list-group-item-action">
+                                <span class="badge badge-primary badge-pill"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                Morbi leo risus<br>
+                                <span class="list-span">0111 2111 2131 2091</span></a>
+
+                              <a href="#" class="list-group-item list-group-item-action">
+                                <span class="badge badge-primary badge-pill"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                Porta ac consectetur ac<br>
+                                <span class="list-span">0111 2111 2131 2091</span>
+                                </a>
+
+                              <a href="#" class="list-group-item list-group-item-action "><span class="badge badge-primary badge-pill"><i class="fa fa-angle-right" aria-hidden="true"></i></span>Vestibulum at eros<br>
+                                 <span class="list-span">0111 2111 2131 2091</span>
+                                </a>
+
+                            </div>                           
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-danger"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requested</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<script src="js/main.js"></script>
+<script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+    <script>
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap4'
+        });
+    </script>
+</body>
+
+</html>
