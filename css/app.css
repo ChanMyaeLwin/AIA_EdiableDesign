@@ -654,6 +654,12 @@ button#export_change_report {
     padding: 5px 35px;
     width: 100%!important;
 }
+button#export_member_report {
+  background-color: #27AE60!important;
+  border-color: #27AE60!important;
+  padding: 5px 35px;
+  width: 100%!important;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -732,6 +738,12 @@ button#export_change_report {
     border-color: #27AE60!important;
     padding: 5px 35px;
     width: 100%!important;
+}
+button#export_member_report {
+  background-color: #27AE60!important;
+  border-color: #27AE60!important;
+  padding: 5px 35px;
+  width: 100%!important;
 }
 .form-control {
     display: block;
@@ -833,6 +845,12 @@ button#export_change_report {
     padding: 5px 35px;
     width: 100%!important;
 }
+button#export_member_report {
+  background-color: #27AE60!important;
+  border-color: #27AE60!important;
+  padding: 5px 35px;
+  width: 100%!important;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -917,6 +935,12 @@ button#export_change_report {
     border-color: #27AE60!important;
     padding: 5px 35px;
     width: 100%!important;
+}
+button#export_member_report {
+  background-color: #27AE60!important;
+  border-color: #27AE60!important;
+  padding: 5px 35px;
+  width: 100%!important;
 }
 .form-control {
     display: block;
@@ -19722,10 +19746,18 @@ button#export_change_report {
     border-color: #27AE60!important;
     padding: 5px 35px;
 }
+button#export_member_report {
+  background-color: #27AE60!important;
+  border-color: #27AE60!important;
+  padding: 5px 35px;
+}
 button#change_report_search {
     width: 100%;
 }
 .export_change_report{
+  padding-top: 15px;
+}
+.export_member_report{
   padding-top: 15px;
 }
 /*********Change Report************/
