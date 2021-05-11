@@ -164,7 +164,7 @@ tr.compair_row {
   background-color: #d021491f;
 }
 .table-bordered th, .table-bordered td {
-    border: 1px solid #d021498a!important;
+    border: 2px solid #d021498a!important;
 }
 .table thead th {
     vertical-align: bottom;
