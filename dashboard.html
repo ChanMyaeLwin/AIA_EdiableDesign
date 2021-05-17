@@ -12,6 +12,7 @@
    style-src  'self' 'unsafe-inline' *">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <!-- Fontawesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/mix-all.css">
 
@@ -215,21 +216,17 @@
                 <div class="box_container">
                     <div class="row pl-3 pr-3">
                         <div class="col-xl-4 col-md-6">
-                            <h6> Reporting Period </h6>
-                            <div class="dropdown list-group">
-                                  <a class="btn btn-secondary dropdown_toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-calendar" aria-hidden="true"></i> <span style="color: #9A9EA5;">Today</span>
-                                  </a>
-
-                                  <div class="dropdown-menu list-group-show" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item active" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                  </div>
-                                </div>
+                            <h6> Reporting Period </h6>                            
+                            <select class="form-select reporting_period" aria-label="Default select example">
+                                <option value="calendar">&#xf133; Today</option>
+                                <option value=""> Last Week</option>
+                                <option value=""> This Month</option>
+                                <option value=""> Last Month</option>
+                                <option value=""> This Year</option>
+                                <option value=""> Last Year</option>
+                            </select>
                         </div>
                         <div class="col-xl-2 col-md-6">
-                            <h6> &nbsp;</h6>
                              <button id="apply" class="btn btn-primary">Apply</button>
                         </div>
                     </div>
