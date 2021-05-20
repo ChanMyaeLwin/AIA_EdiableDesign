@@ -19862,8 +19862,9 @@ table.table.table-striped.table-bordered.dt-responsive.nowrap.table_id.dataTable
     width: 100%!important;
 }
 .claim_list, .claim_list hover {
-    background: #D02149 !important;
-    padding: 7px 16px;
-    color: #fff !important;
-    border-radius: 3px;
+  background: #EBC9D0 !important;
+  padding: 7px 16px;
+  color: #D02149 !important;
+  border-radius: 3px;
+  text-decoration: none !important;
 }
