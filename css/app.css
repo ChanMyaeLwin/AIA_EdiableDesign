@@ -206,7 +206,11 @@ span.badge.badge-primary.badge-pill.policy_span i {
       max-width: 50%;
       padding: 20px 0px;
 }
+<<<<<<< HEAD
 #change_report_submit button:hover{
+=======
+#change_report_submit, #change_report_submit hover{
+>>>>>>> be9265f192ef06dacb8440c8636bb191053dbd5f
   background: #38C172!important;
   border-color: #38C172!important;
   padding: 5px 10px;
