@@ -170,9 +170,14 @@ tr.compair_row {
 .dataTables_scrollBody{
     position: relative;
   overflow-x: auto;
-  height: 300px;
+  height: 170px;
 }
-
+div#example_filter {
+    display: none;
+}
+div#example_length {
+    display: none;
+}
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
@@ -201,13 +206,12 @@ span.badge.badge-primary.badge-pill.policy_span i {
       max-width: 50%;
       padding: 20px 0px;
 }
-#autograph_submit, #autograph_submit hover{
+#change_report_submit button:hover{
   background: #38C172!important;
   border-color: #38C172!important;
   padding: 5px 10px;
   width: 100%;
 }
-
 h1.h2.title-1 img {
     width: 5%;
     margin-top: -22px;
@@ -502,7 +506,7 @@ a.list-group-item.list-group-item-action i {
     font-size: 8px!important;
 }
 
-  #autograph_submit {
+  #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -593,7 +597,7 @@ button#member_report_search {
     width: 60%!important;
     margin-top: 10px;
 }
-   #autograph_submit {
+   #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -658,7 +662,7 @@ img.img-responsive {
     margin-right: 18px;
 
 }
-   #autograph_submit {
+   #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -758,7 +762,7 @@ button#export_member_report {
     width: 60%!important;
     margin-top: 10px;
 }
-   #autograph_submit {
+   #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -875,7 +879,7 @@ button#member_report_search {
     font-size: 28px!important;
     color: #D02149;
 }
-   #autograph_submit {
+   #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -964,7 +968,7 @@ button#member_report_search {
     font-size: 24px!important;
     color: #D02149;
 }
-   #autograph_submit {
+   #change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
@@ -974,7 +978,7 @@ button#member_report_search {
   .autograph{
       max-width: 100%;
 }
-#autograph_submit {
+#change_report_submit {
     background: #38C172;
     border-color: #38C172;
     padding: 5px 10px;
